@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import codecs
 from iso639 import languages
@@ -34,10 +34,12 @@ def getListItems(lang_code):
   for lang_name in essential_languages: 
     languages_list.append(translator.translate(lang_name , dest=lang_code).text)
   # add the language name to the languages list
-  lang_name = (languages.get(alpha2=lang_code)).name
-  languages_list.append(translator.translate(lang_name , dest=lang_code).text)
+  lang_name_of_code = (languages.get(alpha2=lang_code)).name
+  languages_list.append(translator.translate(lang_name_of_code , dest=lang_code).text)
 
   return {
+    'lang_code': lang_code,
+    'lang_name_of_code': lang_name_of_code,
     'names_list': names_list,
     'languages_list' : languages_list
   }
@@ -46,24 +48,6 @@ def getListItems(lang_code):
 
   
 
-for lang in languages:
-	names = [
- 		translator.translate('Arlo' , dest=lang).text,
- 		translator.translate('Mila' , dest=lang).text,
- 		translator.translate('Jose' , dest=lang).text,
- 		translator.translate('Alejandro' , dest=lang).text
-	]
-
-
-	out = ""
-
-	for name in names:
-    		#if not content.strip(): continue
-    		out = out + "\"" + name  + "\", "
-
-	print(out[:-2])
-
-
-
-
-print translator.translate('Arlo' , dest=lang).text
+for lang_code in lang_codes:
+	list_names = getListItems(lang_code)
+	print (list_names)
