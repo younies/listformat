@@ -1,7 +1,15 @@
-getListFormatter = (lang , listOfItems) => {
+getListFormatter = (lang , langname,  listOfItems) => {
 	lfc = new Intl.ListFormat(lang , { type: 'conjunction' }); 
     lfd = new Intl.ListFormat(lang , { type: 'disjunction' });
 
-    console.log(lfc.format(listOfItems));
-    console.log(lfd.format(listOfItems)) ;
+    conj = lfc.format(listOfItems);
+    disj = lfd.format(listOfItems) ;
+
+    return {
+    	lang: lang,
+    	language_name : langname,
+    	conjunction : conj,
+    	disjunction: disjunction
+    }
 }
+
