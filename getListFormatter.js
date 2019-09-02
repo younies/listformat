@@ -6,8 +6,8 @@ getListFormatter = (lang , langname,  listOfItems) => {
     disj = lfd.format(listOfItems) ;
 
     return {
-    	lang: lang,
-    	language_name : langname,
+    	langCode: lang,
+    	langName : langname,
     	conjunction : conj,
     	disjunction: disjunction
     }
