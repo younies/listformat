@@ -1,0 +1,8 @@
+zh
+zh-TW
+en-GB
+es-419
+fil
+iw
+pt-PT
+sr-Latn
