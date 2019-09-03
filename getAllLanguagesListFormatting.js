@@ -11,18 +11,22 @@
 
      return: list of object in form {
 	    langCode: string,
-    	langName : string,
-    	conjunction_names : string, // conjucate of the listOfItems contains the names
-    	conjunction_languages : string, // conjucate of the listOfItems contains the langugaes
-    	disjunction_names: string   // disjuncate of the listOfItems contains the names
-    	disjunction_languages: string // disjuncate of the listOfItems contains the languages
+      langName : string,
+      listOfNamesEnglish: array of strings,
+      listOfNames: array of strings,
+      listOfLanguagesEnglish: array of strings,
+        listOfLanguages: array of strings,
+      conjunctionNames : string, // conjucate of the listOfItems contains the names
+      conjunctionLanguages : string, // conjucate of the listOfItems contains the langugaes
+      disjunctionNames: string   // disjuncate of the listOfItems contains the names
+      disjunctionLanguages: string // disjuncate of the listOfItems contains the languages
      }  
  */
 getAllListsLanguages = (langList) => { 
-
+  result = []
    for (var i =  0 ; i < langList.length ; i++) {
-   	langList[i]
+   		items = langList[i]
+      result.push(getListFormatter(items))        
    }
-   
-
+   return result
 }
